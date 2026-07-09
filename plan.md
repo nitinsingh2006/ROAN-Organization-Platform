@@ -15,6 +15,12 @@
 ## Phase 3: University, Super Admin, PDFs, Analytics, Export, and Final Workflows ✅
 - [x] Implement the University portal dashboards and workflows for application approvals, result declaration, certificate approvals, and approval audit trails.
 - [x] Implement the Super Admin portal dashboards and workflows for user management, contact messages, audit logs, analytics charts, and backup export.
-- [ ] Generate real PDFs for certificates and admit cards with server-side eligibility and approval validation before download.
+- [x] Generate real PDFs for certificates and admit cards with server-side eligibility and approval validation before download.
 - [x] Complete real chart-based analytics for students, applications, enrollments, results, fees, and pipeline activity.
 - [x] Finalize mobile responsiveness, form validation, empty/loading states, toast feedback, audit logging coverage, and cross-role authorization consistency.
+
+## Phase 4: OAuth, Visual Depth, and Remaining Polish
+- [ ] Add additive Google and GitHub sign-in options with default student onboarding, provider linking, failure handling, and existing role-based redirects.
+- [ ] Add layered hero depth, subtle animated glow backgrounds, and responsive visual effects for public and authentication experiences.
+- [ ] Add tactile hover depth to branch cards, portal metrics, course cards, and certificate/admit-card surfaces while keeping mobile behavior performant.
+- [ ] Complete a cross-page polish pass for links, empty states, loading states, toasts, PDFs, responsive navigation, forms, tables, and route protection.
