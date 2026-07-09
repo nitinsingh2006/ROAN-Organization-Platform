@@ -2,3 +2,5 @@
 reflex[db]==0.9.6.post1
 reflex-enterprise
 reportlab
+PyGithub
+httpx

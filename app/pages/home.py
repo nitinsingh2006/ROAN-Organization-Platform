@@ -40,7 +40,7 @@ def _branch_card(
                 rx.icon("arrow-right", class_name="h-4 w-4 text-[#C9A24B]"),
                 class_name="flex items-center gap-2 group-hover:gap-3 transition-all",
             ),
-            class_name="p-8 rounded-2xl bg-[#F5EFE0]/[0.03] backdrop-blur-xl border border-[#C9A24B]/10 hover:border-[#C9A24B]/40 hover:bg-[#F5EFE0]/[0.06] transition-all duration-300 h-full group",
+            class_name="p-8 rounded-2xl bg-[#F5EFE0]/[0.03] backdrop-blur-xl border border-[#C9A24B]/10 hover:border-[#C9A24B]/40 hover:bg-[#F5EFE0]/[0.06] transition-all duration-300 h-full group tilt-card",
         ),
         href=href,
     )
@@ -105,7 +105,7 @@ def home() -> rx.Component:
                 ),
                 class_name="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative",
             ),
-            class_name="relative overflow-hidden",
+            class_name="relative overflow-hidden roan-hero-bg",
         ),
         rx.el.section(
             rx.el.div(

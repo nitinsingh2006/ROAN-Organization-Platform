@@ -1,6 +1,7 @@
 import reflex as rx
 from app.components.layout import page_shell
 from app.states.auth_state import AuthState
+from app.components.oauth_buttons import oauth_buttons
 
 
 def _auth_shell(
@@ -35,7 +36,7 @@ def _auth_shell(
                     ),
                     class_name="w-full max-w-md",
                 ),
-                class_name="min-h-[70vh] flex items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16",
+                class_name="min-h-[70vh] flex items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 roan-hero-bg",
             ),
         ),
     )
@@ -120,8 +121,9 @@ def login() -> rx.Component:
                     href="/forgot-password",
                     class_name="block text-center text-[#F5EFE0]/50 hover:text-[#C9A24B] text-sm mt-4",
                 ),
+                oauth_buttons(),
                 on_submit=AuthState.login,
-                class_name="p-8 rounded-2xl bg-[#F5EFE0]/[0.03] backdrop-blur-xl border border-[#C9A24B]/10",
+                class_name="p-8 rounded-2xl bg-[#F5EFE0]/[0.03] backdrop-blur-xl border border-[#C9A24B]/10 tilt-card",
             ),
         ),
         "Don't have an account?",
@@ -200,8 +202,9 @@ def register() -> rx.Component:
                 type="submit",
                 class_name="w-full px-8 py-3 bg-[#C9A24B] text-[#0A1628] rounded-lg font-semibold hover:bg-[#C9A24B]/90 transition-all",
             ),
+            oauth_buttons(),
             on_submit=AuthState.register,
-            class_name="p-8 rounded-2xl bg-[#F5EFE0]/[0.03] backdrop-blur-xl border border-[#C9A24B]/10",
+            class_name="p-8 rounded-2xl bg-[#F5EFE0]/[0.03] backdrop-blur-xl border border-[#C9A24B]/10 tilt-card",
         ),
         "Already have an account?",
         "/login",

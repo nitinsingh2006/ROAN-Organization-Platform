@@ -15,6 +15,8 @@ from app.pages.dashboards import (
 )
 from app.states.auth_state import AuthState
 from app.states.student_state import StudentState
+from app.states.oauth_state import OAuthState
+from app.pages.oauth_callback import google_callback, github_callback
 
 
 def index() -> rx.Component:
@@ -23,6 +25,7 @@ def index() -> rx.Component:
 
 app = rx.App(
     theme=rx.theme(appearance="light"),
+    stylesheets=["/roan_effects.css"],
     head_components=[
         rx.el.link(rel="preconnect", href="https://fonts.googleapis.com"),
         rx.el.link(
@@ -69,4 +72,14 @@ app.add_page(
 )
 app.add_page(
     admin_dashboard, route="/portal/admin", on_load=AuthState.guard_admin
+)
+app.add_page(
+    google_callback,
+    route="/auth/callback/google",
+    on_load=OAuthState.handle_google_callback,
+)
+app.add_page(
+    github_callback,
+    route="/auth/callback/github",
+    on_load=OAuthState.handle_github_callback,
 )

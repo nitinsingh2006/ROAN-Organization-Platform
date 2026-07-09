@@ -399,6 +399,69 @@ def register_user(
     return rec
 
 
+OAUTH_LINKS: list[dict[str, str | int]] = []
+
+
+def link_or_create_oauth_user(
+    provider: str, provider_uid: str, email: str, full_name: str
+) -> UserRec | None:
+    if not email:
+        return None
+    # Check existing OAuth link
+    for link in OAUTH_LINKS:
+        if (
+            link["provider"] == provider
+            and link["provider_uid"] == provider_uid
+        ):
+            return find_user_by_id(int(link["user_id"]))
+    # Match by email
+    user = find_user(email)
+    if user is not None:
+        OAUTH_LINKS.append(
+            {
+                "provider": provider,
+                "provider_uid": provider_uid,
+                "user_id": user["id"],
+                "email": email,
+            }
+        )
+        return user
+    # Create new student
+    new_id = _next_user_id()
+    rec: UserRec = {
+        "id": new_id,
+        "email": email,
+        "password_hash": _hash("!oauth!"),
+        "role": "student",
+        "full_name": full_name or email.split("@")[0].title(),
+        "is_active": True,
+    }
+    USERS.append(rec)
+    STUDENT_PROFILES.append(
+        {
+            "user_id": new_id,
+            "phone": "",
+            "address": "",
+            "date_of_birth": "",
+            "guardian": "",
+        }
+    )
+    OAUTH_LINKS.append(
+        {
+            "provider": provider,
+            "provider_uid": provider_uid,
+            "user_id": new_id,
+            "email": email,
+        }
+    )
+    push_notification(
+        new_id,
+        "Welcome to ROAN",
+        f"Your account was created via {provider.title()} sign-in.",
+    )
+    return rec
+
+
 def get_courses_by_branch(branch: str) -> list[CourseRec]:
     return [c for c in COURSES if c["branch"] == branch]
 

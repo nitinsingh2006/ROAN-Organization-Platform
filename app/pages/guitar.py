@@ -47,7 +47,7 @@ def _course_card(course: CourseRec) -> rx.Component:
             ),
             class_name="flex items-end justify-between pt-4 border-t border-[#C9A24B]/10",
         ),
-        class_name="p-8 rounded-2xl bg-[#F5EFE0]/[0.03] backdrop-blur-xl border border-[#C9A24B]/10 hover:border-[#C9A24B]/40 transition-all duration-300",
+        class_name="p-8 rounded-2xl bg-[#F5EFE0]/[0.03] backdrop-blur-xl border border-[#C9A24B]/10 hover:border-[#C9A24B]/40 transition-all duration-300 tilt-card",
     )
 
 

@@ -88,6 +88,7 @@ def _sidebar(
 
 def _topbar(title: str) -> rx.Component:
     return rx.el.header(
+        rx.el.div(class_name="roan-glow-strip"),
         rx.el.div(
             rx.el.button(
                 rx.icon("menu", class_name="h-5 w-5"),
@@ -163,7 +164,7 @@ def stat_card(
             class_name="flex items-center gap-2 mb-3",
         ),
         rx.el.p(value, class_name="text-3xl font-bold text-[#F5EFE0]"),
-        class_name="p-6 rounded-2xl bg-[#F5EFE0]/[0.03] border border-[#C9A24B]/10 backdrop-blur-xl",
+        class_name="p-6 rounded-2xl bg-[#F5EFE0]/[0.03] border border-[#C9A24B]/10 backdrop-blur-xl depth-card",
     )
 
 
